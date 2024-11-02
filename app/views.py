@@ -9,14 +9,14 @@ from django.shortcuts import render, reverse
 #
 def home_view(request):
     template_name = 'app/home.html'
-    # впишите правильные адреса страниц, используя
-    # функцию `reverse`
+#     # впишите правильные адреса страниц, используя
+#     # функцию `reverse`
     pages = {
-        'Главная страница': reverse(template_name),
+        'Главная страница': reverse('home'),
         'Показать текущее время': datetime.datetime.now(),
         'Показать содержимое рабочей директории': os.listdir()
     }
-
+#
     # context и параметры render менять не нужно
     # подбробнее о них мы поговорим на следующих лекциях
     context = {
@@ -25,6 +25,9 @@ def home_view(request):
     return render(request, template_name, context)
 
 #
+
+
+
 def time_view(request):
     # обратите внимание – здесь HTML шаблона нет,
     # возвращается просто текст
